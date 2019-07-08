@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>获取文件</title> 
+<!-- 声明脚本包含 -->
+<script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+<!-- 声明函数 -->
+<script>
+    function displayDate(){
+        // let user = document.getElementById("user").value;
+        // let password = document.getElementById("password").value;
+        // let url = "/admin/recruit/horn";
+    }
+    </script>
+</head>
+<body>
+
+<form action="">
+用户: <input type="text" name="user" id="user"><br>
+密码: <input type="password" name="password" id="password"><br>
+资料: <input type="text" name="dataName" id="dataName">
+</form>
+<!-- <button type="button" onclick="displayDate()">显示日期</button> -->
+<button type="button" id="button">显示日期</button>
+
+<!-- 设置回调 -->
+<script>
+    $("button").click(function(){
+        let data = {};
+        data.user = document.getElementById("user").value;
+        data.password = document.getElementById("password").value;
+        data.dataName = document.getElementById("dataName").value;
+        console.log(JSON.stringify(data));
+        let url = "/getFile";
+        $.post(url, data, function(ret){
+            console.log(JSON.stringify(ret));
+                if (ret) {
+                    alert("获取成功!");
+                } else {
+                    alert("获取失败!");
+                }
+            });
+    });
+    </script>
+
+</body>
+</html>
