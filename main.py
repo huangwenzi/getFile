@@ -49,13 +49,12 @@ session_opts = {
 def callback():
     return GetHtml.get_idxen()
 # 获取某个文件
-@post('/getFile')
-def callback():
-    params = request.params.dict
-    print("getFile:" + str(params))
-    data = GetFile.get_file(params)
-    return data
+@get('/getFile/<path:path>')
+def callback(path):
+    # print("path:" + path)
+    return static_file(path, root='./file')
 
+GetHtml.get_idxen()
 
 # 函数主入口
 if __name__ == '__main__':

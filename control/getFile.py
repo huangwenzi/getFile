@@ -1,5 +1,6 @@
 from bottle import static_file
 
+# 暂未使用
 
 # 这个类用来专门返还文件
 class GetFile():
